@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  color-scheme: dark;
+  font-family: 'Manrope', 'Avenir Next', sans-serif;
+  background: #111512;
+  color: #f0f3ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --muted: #818b80;
+  --panel: #1a201b;
+  --line: #2a332b;
+  --lime: #c7f36b;
+  --mono: 'DM Mono', 'SFMono-Regular', monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(130, 157, 92, .12), transparent 44%),
+    linear-gradient(135deg, transparent 49.9%, rgba(255,255,255,.018) 50%, transparent 50.1%),
+    #111512;
+}
+
+.calculator {
+  width: min(100%, 390px);
+  overflow: hidden;
+  border: 1px solid #303931;
+  border-radius: 12px;
+  background: #171c18;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, .42), 0 1px 0 rgba(255,255,255,.035) inset;
+  animation: arrive .55s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.topbar, .footer { display: flex; align-items: center; justify-content: space-between; }
+.topbar { height: 62px; padding: 0 23px; border-bottom: 1px solid var(--line); }
+.wordmark { display: inline-flex; align-items: center; gap: 10px; color: #f0f3ed; font-size: 15px; font-weight: 800; text-decoration: none; }
+.wordmark-light { color: #a4aea1; font-weight: 500; }
+.brand-mark { width: 21px; height: 21px; display: grid; place-items: center; border: 1px solid var(--lime); border-radius: 50%; }
+.brand-mark span { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 10px rgba(199,243,107,.7); }
+.status, .display-label, .result-label, .footer { font-family: var(--mono); letter-spacing: 0; }
+.status { display: flex; align-items: center; gap: 7px; color: #a6b09f; font-size: 9px; }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 8px rgba(199,243,107,.7); }
+
+.display { min-height: 196px; padding: 26px 24px 20px; text-align: right; }
+.display-label { margin: 0 0 13px; color: var(--muted); font-size: 9px; text-align: left; }
+.expression { min-height: 42px; overflow: hidden; color: #a8b0a6; font-family: var(--mono); font-size: 22px; line-height: 1.5; text-overflow: ellipsis; white-space: nowrap; }
+.result-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 11px; }
+.result-label { color: var(--muted); font-size: 9px; }
+.result { overflow: hidden; color: var(--lime); font-family: var(--mono); font-size: clamp(30px, 9vw, 38px); line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.error { min-height: 15px; margin: 8px 0 0; color: #f28d78; font-size: 11px; text-align: left; }
+
+.keypad { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; padding: 17px; border-top: 1px solid var(--line); background: #141915; }
+.key { min-width: 0; aspect-ratio: 1.38; border: 1px solid #2b332d; border-radius: 7px; background: #202621; color: #edf0e9; font: 600 18px 'Manrope', 'Avenir Next', sans-serif; cursor: pointer; transition: background .15s ease, border-color .15s ease, transform .15s ease; }
+.key:hover { transform: translateY(-1px); border-color: #586452; background: #29312a; }
+.key:active { transform: translateY(0); }
+.key:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+.key-utility { color: #b7c0b1; background: #252b25; font-size: 14px; }
+.key-operator { border-color: #384333; color: var(--lime); background: #222a20; font-size: 20px; }
+.key-equals { border-color: var(--lime); background: var(--lime); color: #17200f; font-size: 22px; }
+.key-equals:hover { border-color: #d9ff9d; background: #d9ff9d; }
+
+.footer { min-height: 39px; padding: 0 21px; border-top: 1px solid var(--line); color: #748074; font-size: 8px; }
+
+@keyframes arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 360px) {
+  .topbar { padding-inline: 17px; }
+  .keypad { gap: 7px; padding: 13px; }
+  .key { aspect-ratio: 1.25; }
+  .display { padding-inline: 18px; }
+  .footer { padding-inline: 15px; font-size: 7px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

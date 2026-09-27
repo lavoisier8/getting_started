@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111512">
+  <title>Orbit Calculator</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main class="calculator" aria-label="Calculator">
+    <header class="topbar">
+      <a class="wordmark" href="/" aria-label="Orbit Calculator home">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span>orbit<span class="wordmark-light">/calc</span></span>
+      </a>
+      <span class="status"><span class="status-dot"></span> READY</span>
+    </header>
+
+    <section class="display" aria-live="polite" aria-atomic="true">
+      <p class="display-label">YOUR EXPRESSION</p>
+      <div class="expression" id="expression">0</div>
+      <div class="result-row">
+        <span class="result-label">RESULT</span>
+        <output class="result" id="result">0</output>
+      </div>
+      <p class="error" id="error" role="alert"></p>
+    </section>
+
+    <section class="keypad" aria-label="Calculator keys">
+      <button class="key key-utility" data-action="clear" aria-label="Clear">AC</button>
+      <button class="key key-utility" data-action="sign" aria-label="Change sign">+/-</button>
+      <button class="key key-utility" data-action="percent" aria-label="Percent">%</button>
+      <button class="key key-operator" data-value="/" aria-label="Divide">÷</button>
+
+      <button class="key" data-value="7">7</button>
+      <button class="key" data-value="8">8</button>
+      <button class="key" data-value="9">9</button>
+      <button class="key key-operator" data-value="*" aria-label="Multiply">×</button>
+
+      <button class="key" data-value="4">4</button>
+      <button class="key" data-value="5">5</button>
+      <button class="key" data-value="6">6</button>
+      <button class="key key-operator" data-value="-" aria-label="Subtract">−</button>
+
+      <button class="key" data-value="1">1</button>
+      <button class="key" data-value="2">2</button>
+      <button class="key" data-value="3">3</button>
+      <button class="key key-operator" data-value="+" aria-label="Add">+</button>
+
+      <button class="key key-utility" data-action="backspace" aria-label="Delete last character">⌫</button>
+      <button class="key" data-value="0">0</button>
+      <button class="key" data-value="." aria-label="Decimal point">.</button>
+      <button class="key key-equals" data-action="equals" aria-label="Calculate">=</button>
+    </section>
+
+    <footer class="footer"><span>PRECISION, WITHOUT THE NOISE.</span><span>⌨ KEYBOARD READY</span></footer>
+  </main>
+</body>
+</html>
